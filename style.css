@@ -1,0 +1,240 @@
+/* === RESET ET STYLE DE BASE === */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 1rem;
+    background: #f9f9f9;
+}
+
+/* === Titre stylé avec ligne et animation === */
+h1 {
+    display: inline-block;
+    /* on garde pour la ligne décorative */
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    margin: 2rem auto;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+
+h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%) scaleX(0);
+    width: 50%;
+    height: 3px;
+    background: #4caf50;
+    border-radius: 2px;
+    transform-origin: center;
+    animation: slideIn 1s forwards 0.5s;
+}
+
+h1 span {
+    color: #4caf50;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%) scaleX(0);
+    }
+
+    to {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+/* === Catégories === */
+.category {
+    margin-bottom: 2rem;
+}
+
+.food-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.food-info {
+    display: flex;
+    align-items: center;
+}
+
+.food-info img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.food-name {
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn {
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.quantity {
+    min-width: 30px;
+    text-align: center;
+}
+
+#total {
+    position: sticky;
+    bottom: 20px;
+    background: #fff;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* === Barre de progression === */
+#progress-bar {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background: #4caf50;
+    transition: width 0.3s ease;
+}
+
+#reset-btn {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.75rem 1.5rem;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#reset-btn:hover {
+    background: #c0392b;
+}
+
+/* === Switch Mode Rapide stylé iPhone === */
+.mode-rapide-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.switch input:checked+.slider {
+    background-color: #4caf50;
+}
+
+.switch input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    /* Centrer tout le contenu texte dedans */
+}
+
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 150px;
+    /* Ajuste ici 60-70% */
+    height: 2px;
+    background: #4caf50;
+    border-radius: 2px;
+}
