@@ -86,10 +86,12 @@ h1 span {
     top: 50%;
     transform: translateY(-50%);
     transition: transform 0.3s ease;
+    color: #4caf50;
 }
 
 .accordion.active::after {
     transform: translateY(-50%) rotate(180deg);
+    color: #366e39;
 }
 
 /* Barre verte sous titre accordéon */
