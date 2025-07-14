@@ -63,6 +63,7 @@ h1 span {
 /* === Catégories === */
 .category {
     margin-bottom: 2rem;
+    text-align: left; /* ===  Force l'alignement a gauche des titres des catégories === */
 }
 
 .food-item {
@@ -220,21 +221,20 @@ h1 span {
 }
 
 h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
 }
 
 h2::after {
-    content: "";
-    position: absolute;
-    left: 0%;
-    transform: translateX(-50%);
-    bottom: -8px;
-    width: 150px;
-    /* Ajuste ici 60-70% */
-    height: 2px;
-    background: #4caf50;
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 65%;
+  height: 2px;
+  background: #4caf50;
+  border-radius: 2px;
 }
