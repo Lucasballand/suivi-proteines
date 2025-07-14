@@ -330,6 +330,9 @@ h1 span {
     right: 20px;
     z-index: 999;
     text-align: center;
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .mascotte img {

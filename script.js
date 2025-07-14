@@ -100,7 +100,8 @@ function updateTotal() {
 function showMascotte(phrasesArray) {
     const phrase = phrasesArray[Math.floor(Math.random() * phrasesArray.length)];
     mascotteBulle.textContent = phrase;
-    mascotte.style.display = "block";
+
+    mascotte.style.opacity = '1'; // FADE IN
 
     // === Son aléatoire sans doublon ===
     let index;
@@ -112,10 +113,12 @@ function showMascotte(phrasesArray) {
     const audio = new Audio(sonsPoulet[index]);
     audio.play();
 
+    // FADE OUT après 6s
     setTimeout(() => {
-        mascotte.style.display = "none";
+        mascotte.style.opacity = '0';
     }, 6000);
 }
+
 
 // === Mode rapide ON/OFF ===
 modeRapideSwitch.addEventListener('change', () => {
