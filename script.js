@@ -45,6 +45,15 @@ const phrases100 = [
     "Mission accomplie ! 🏆"
 ];
 
+// === Sons mascotte ===
+const sonsPoulet = [
+    './sounds/visage-coquin.mp3',
+    './sounds/anime.mp3',
+    './sounds/okay.mp3',
+    './sounds/cute-uwu.mp3'
+];
+let lastSoundIndex = -1; // Pour éviter doublon
+
 // === Sélecteurs principaux ===
 const totalDiv = document.getElementById('total');
 const modeRapideSwitch = document.getElementById('mode-rapide');
@@ -81,17 +90,27 @@ function updateTotal() {
             window.mascotte100Shown = true;
         }
     } else {
-        // Si on descend sous 50% on reset
+        // Reset si on redescend sous 50%
         window.mascotte50Shown = false;
         window.mascotte100Shown = false;
     }
 }
 
-// === Fonction pour afficher la mascotte ===
+// === Fonction pour afficher la mascotte + son aléatoire ===
 function showMascotte(phrasesArray) {
     const phrase = phrasesArray[Math.floor(Math.random() * phrasesArray.length)];
     mascotteBulle.textContent = phrase;
     mascotte.style.display = "block";
+
+    // === Son aléatoire sans doublon ===
+    let index;
+    do {
+        index = Math.floor(Math.random() * sonsPoulet.length);
+    } while (index === lastSoundIndex && sonsPoulet.length > 1);
+    lastSoundIndex = index;
+
+    const audio = new Audio(sonsPoulet[index]);
+    audio.play();
 
     setTimeout(() => {
         mascotte.style.display = "none";
