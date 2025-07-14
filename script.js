@@ -23,7 +23,7 @@ function updateTotal() {
 
 // === Mode rapide ON/OFF ===
 modeRapideSwitch.addEventListener('change', () => {
-    modeText.textContent = modeRapideSwitch.checked ? 'ON' : 'OFF';
+    modeText.textContent = modeRapideSwitch.checked ? 'ON ⚡️' : 'OFF';
 });
 
 // === Boutons + et - ===

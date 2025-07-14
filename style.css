@@ -161,6 +161,13 @@ h1 span {
     user-select: none;
 }
 
+.btn:active {
+    transform: scale(0.9);
+    background: #4caf50;
+    color: #fff;
+    transition: transform 0.1s, background 0.1s;
+}
+
 .quantity {
     min-width: 30px;
     text-align: center;
@@ -183,6 +190,7 @@ h1 span {
     width: 100%;
     height: 10px;
     background: #ddd;
+    border-radius: 5px;
 }
 
 #progress {
@@ -190,6 +198,7 @@ h1 span {
     width: 0%;
     background: #4caf50;
     transition: width 0.3s ease;
+    border-radius: 5px;
 }
 
 #reset-btn {
@@ -277,11 +286,12 @@ h1 span {
 }
 
 .modal-content {
-    background: #fff;
+    background: rgb(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
     max-width: 400px;
+    backdrop-filter: blur(10px);
 }
 
 .modal-content h3 {
@@ -296,4 +306,19 @@ h1 span {
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.modal-content .signature {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.modal-content .signature a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.modal-content .signature a:hover {
+    text-decoration: underline;
 }
