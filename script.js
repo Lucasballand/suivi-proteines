@@ -1,7 +1,56 @@
+// === Phrases mascotte ===
+const phrases50 = [
+    "Allez mon poulet ! 💪",
+    "Encore un effort ! 🐔",
+    "T'es qu'à moitié cuit !",
+    "Fais gonfler ces biceps !",
+    "T’es pas en mode poulet rôti encore !",
+    "Mange plus, gagne plus !",
+    "C’est bien, mais pas assez !",
+    "Je veux voir des muscles !",
+    "Allez hop, encore un steak !",
+    "Tu vas devenir une machine !",
+    "Plus de brocoli, plus de poulet !",
+    "Encore du quinoa !",
+    "Mets le turbo !",
+    "Mode Rapide ON !",
+    "Encore quelques bouchées !",
+    "C’est ça qu’on veut !",
+    "Tu vas tout casser !",
+    "Boom, encore un scoop !",
+    "Fais pas ton poulet de batterie !",
+    "Go go go !"
+];
+
+const phrases100 = [
+    "Objectif PROTÉINE atteint ! 🎉",
+    "T’es une bête ! 🐔💥",
+    "Mon poulet musclé préféré !",
+    "Muscles validés ! 💪",
+    "Protéines max !",
+    "T’es un monstre !",
+    "C’est ça le body !",
+    "Champion du shaker !",
+    "Mister Biceps !",
+    "Machine à œufs !",
+    "Steak power !",
+    "Shaker Master !",
+    "Trop fort !",
+    "Fier de toi !",
+    "Prêt pour la salle !",
+    "Prochain objectif : plus gros !",
+    "Tu vas gonfler !",
+    "Bombe de protéines !",
+    "Je te muscle les ailes !",
+    "Mission accomplie ! 🏆"
+];
+
 // === Sélecteurs principaux ===
 const totalDiv = document.getElementById('total');
 const modeRapideSwitch = document.getElementById('mode-rapide');
 const modeText = document.getElementById('mode-text');
+const mascotte = document.querySelector('.mascotte');
+const mascotteBulle = mascotte.querySelector('.bulle');
 
 // === Mettre à jour le total ===
 function updateTotal() {
@@ -19,6 +68,34 @@ function updateTotal() {
     const objectif = 150;
     totalDiv.textContent = `Total protéines : ${totalProtein.toFixed(1)} g / ${objectif} g`;
     document.getElementById('progress').style.width = Math.min((totalProtein / objectif) * 100, 100) + '%';
+
+    // === Mascotte logique ===
+    if (totalProtein >= objectif * 0.5 && totalProtein < objectif) {
+        if (!window.mascotte50Shown) {
+            showMascotte(phrases50);
+            window.mascotte50Shown = true;
+        }
+    } else if (totalProtein >= objectif) {
+        if (!window.mascotte100Shown) {
+            showMascotte(phrases100);
+            window.mascotte100Shown = true;
+        }
+    } else {
+        // Si on descend sous 50% on reset
+        window.mascotte50Shown = false;
+        window.mascotte100Shown = false;
+    }
+}
+
+// === Fonction pour afficher la mascotte ===
+function showMascotte(phrasesArray) {
+    const phrase = phrasesArray[Math.floor(Math.random() * phrasesArray.length)];
+    mascotteBulle.textContent = phrase;
+    mascotte.style.display = "block";
+
+    setTimeout(() => {
+        mascotte.style.display = "none";
+    }, 6000);
 }
 
 // === Mode rapide ON/OFF ===
