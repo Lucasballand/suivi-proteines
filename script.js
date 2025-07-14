@@ -104,3 +104,15 @@ resetBtn.addEventListener('click', () => {
     });
     updateTotal();
 });
+
+window.onload = function () {
+    // Vérifie si l'utilisateur a déjà vu le message
+    if (!localStorage.getItem("modalSeen")) {
+        document.getElementById("modal-info").style.display = "flex";
+    }
+
+    document.getElementById("close-modal").addEventListener("click", function () {
+        document.getElementById("modal-info").style.display = "none";
+        localStorage.setItem("modalSeen", "true");
+    });
+};

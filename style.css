@@ -63,7 +63,8 @@ h1 span {
 /* === Catégories === */
 .category {
     margin-bottom: 2rem;
-    text-align: left; /* ===  Force l'alignement a gauche des titres des catégories === */
+    text-align: left;
+    /* ===  Force l'alignement a gauche des titres des catégories === */
 }
 
 .food-item {
@@ -221,20 +222,57 @@ h1 span {
 }
 
 h2 {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
 }
 
 h2::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -6px;
-  width: 65%;
-  height: 2px;
-  background: #4caf50;
-  border-radius: 2px;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    width: 65%;
+    height: 2px;
+    background: #4caf50;
+    border-radius: 2px;
+}
+
+/* === Modal Info === */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* caché par défaut */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+.modal-content button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #4caf50;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
 }
