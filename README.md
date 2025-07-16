@@ -1,48 +1,44 @@
-# 🥩 Suivi Protéines
+# 🍗 Suivi Protéines
 
-Un petit outil **web responsive** pour suivre tes apports journaliers en protéines.
-
-## 🚀 Fonctionnalités
-
-✅ **Liste pré-remplie** d’aliments classés par catégories :  
-- Viandes / Volailles  
-- Poissons  
-- Céréales  
-- Légumineuses  
-- Œufs / Laitages  
-- Compléments
-
-✅ **Boutons + / –** pour ajuster facilement les quantités (en grammes ou en portions).
-
-✅ **Mode Rapide** (toggle style iPhone) pour ajouter des quantités plus grandes en un clic.
-
-✅ **Total protéines** calculé en temps réel avec **barre de progression** par rapport à ton objectif.
-
-✅ Design simple, centré et **responsive mobile**.
+**Suivi Protéines** est un petit outil interactif pour suivre facilement tes apports journaliers en protéines, conçu pour être fun et motivant grâce à une mascotte poulet musclé, des sons et un mode rapide.
 
 ---
 
-## 🗂️ Structure
+## 🚀 Fonctionnalités principales
 
-.
-├── index.html
-├── style.css
-├── script.js
-├── /images
-│ ├── poulet.jpg
-│ ├── saumon.jpg
-│ └── ...
-
-## 🔗 Démo en ligne
-
-Ce site est déployé avec **GitHub Pages** :  
-👉 [https://Lucasballand.github.io/suivi-proteines/](https://Lucasballand.github.io/suivi-proteines/)
+✅ Sélection facile des aliments par catégories (viandes, poissons, légumineuses, céréales, etc.)  
+✅ Calcul automatique du total de protéines avec barre de progression  
+✅ Mascotte poulet musclé qui pop avec des phrases motivantes à 50% et 100% de l’objectif  
+✅ Effets sonores aléatoires pour plus de fun  
+✅ Mode Rapide sticky pour ajuster rapidement les quantités  
+✅ Interface responsive, adaptée pour mobile  
+✅ Développé entièrement en **HTML / CSS / JS**, sans framework lourd
 
 ---
 
-## ⚡ Développement local
+## 📂 Structure du projet
 
-1. Clone le repo :
+📁 /images → Images des aliments et de la mascotte
+📁 /sounds → Sons fun pour la mascotte
+📄 index.html → Structure principale de la page
+📄 style.css → Styles et animations
+📄 script.js → Logique de calcul, UI et interactions
+
+---
+
+## ⚙️ Installation
+
+1. Clone ou télécharge le projet :  
    ```bash
-   git clone https://github.com/Lucasballand/suivi-proteines.git
-   cd suivi-proteines
+   git clone https://github.com/ton-profil/suivi-proteines.git
+
+
+📱 Mobile friendly
+Le site est optimisé pour mobile (responsive design).
+Une version PWA ou appli mobile pourra être envisagée plus tard car le projet est léger et facilement adaptable.
+
+
+👨‍💻 Développé par
+BALLAND Lucas
+📧 lucasballand101@gmail.com
+🐔 Powered by humour et protéines.
