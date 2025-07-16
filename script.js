@@ -60,6 +60,7 @@ const modeRapideSwitch = document.getElementById('mode-rapide');
 const modeText = document.getElementById('mode-text');
 const mascotte = document.querySelector('.mascotte');
 const mascotteBulle = mascotte.querySelector('.bulle');
+const modeRapideContainer = document.querySelector('.mode-rapide-container');
 
 // === Mettre à jour le total ===
 function updateTotal() {
@@ -90,18 +91,16 @@ function updateTotal() {
             window.mascotte100Shown = true;
         }
     } else {
-        // Reset si on redescend sous 50%
         window.mascotte50Shown = false;
         window.mascotte100Shown = false;
     }
 }
 
-// === Fonction pour afficher la mascotte + son aléatoire ===
+// === Fonction mascotte + son + fade ===
 function showMascotte(phrasesArray) {
     const phrase = phrasesArray[Math.floor(Math.random() * phrasesArray.length)];
     mascotteBulle.textContent = phrase;
-
-    mascotte.style.opacity = '1'; // FADE IN
+    mascotte.style.opacity = '1';
 
     // === Son aléatoire sans doublon ===
     let index;
@@ -113,17 +112,37 @@ function showMascotte(phrasesArray) {
     const audio = new Audio(sonsPoulet[index]);
     audio.play();
 
-    // FADE OUT après 6s
     setTimeout(() => {
         mascotte.style.opacity = '0';
     }, 6000);
 }
 
-
 // === Mode rapide ON/OFF ===
 modeRapideSwitch.addEventListener('change', () => {
-    modeText.textContent = modeRapideSwitch.checked ? 'ON ⚡️' : 'OFF';
+
+    if (modeRapideSwitch.checked) {
+        modeRapideContainer.classList.add('active');
+        if (navigator.vibrate) {
+            navigator.vibrate(100);
+        }
+    } else {
+        modeRapideContainer.classList.remove('active');
+    }
 });
+
+window.addEventListener('load', () => {
+    const hint = document.querySelector('.mode-rapide-hint');
+    setTimeout(() => {
+        hint.style.opacity = '0';
+        // Attends le fade-out avant de supprimer l'espace
+        setTimeout(() => {
+            hint.style.display = 'none';
+        }, 500); // correspond à ta transition: opacity 0.5s
+    }, 3000);
+});
+
+
+
 
 // === Boutons + et - ===
 document.querySelectorAll('.btn').forEach(btn => {
@@ -169,10 +188,14 @@ document.querySelectorAll(".accordion").forEach(btn => {
     btn.addEventListener("click", function () {
         this.classList.toggle("active");
         const panel = this.nextElementSibling;
+
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
+            panel.classList.remove('active'); // ferme = pas actif
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
+            panel.classList.add('active'); // ouvert = actif
         }
     });
 });
+

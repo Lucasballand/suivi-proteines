@@ -112,7 +112,19 @@ h1 span {
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease;
+    padding-top: 1rem;
 }
+
+/* Supprime box-shadow quand le panneau est fermé */
+.panel:not(.active) .food-item {
+    box-shadow: none;
+}
+
+/* Garde le box-shadow seulement quand ouvert */
+.panel.active .food-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 
 /* === Food items === */
 .food-item {
@@ -217,19 +229,46 @@ h1 span {
     background: #c0392b;
 }
 
-/* === Mode Rapide === */
+/* === Mode Rapide sticky === */
+
 .mode-rapide-container {
+    position: fixed;
+    top: 25%;
+    right: 20px;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    margin: 1rem 0;
+    z-index: 999;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.mode-rapide-container.active {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    animation: pulse 1.5s infinite;
+}
+
+.mode-rapide-hint {
+    font-size: 0.7rem;
+    background: #4caf50;
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px 8px;
+    margin-bottom: 5px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 28px;
+    width: 40px;
+    height: 20px;
 }
 
 .switch input {
@@ -253,10 +292,10 @@ h1 span {
 .slider:before {
     position: absolute;
     content: "";
-    height: 22px;
-    width: 22px;
-    left: 3px;
-    bottom: 3px;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
     background-color: white;
     border-radius: 50%;
     transition: .4s;
@@ -268,8 +307,23 @@ h1 span {
 }
 
 .switch input:checked+.slider:before {
-    transform: translateX(22px);
+    transform: translateX(20px);
 }
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(76, 175, 80, 0.7);
+    }
+
+    100% {
+        box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    }
+}
+
 
 /* === Modal Info === */
 .modal {
